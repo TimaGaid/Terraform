@@ -11,12 +11,10 @@ pipeline {
   
 
     stage("build go"){
-      try{
-          timeout(time: 5, utils: 'MINUTES'){
-            goImage.inside{
-              dir ("/home/jenkins/"){
-                sh "go install"
-              }
+        timeout(time: 5, utils: 'MINUTES'){
+          goImage.inside{
+            dir ("/home/jenkins/"){
+              sh "go install"
             }
           }
         }
