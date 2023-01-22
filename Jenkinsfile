@@ -13,9 +13,9 @@ pipeline {
 
     stage("build go"){
       steps {
-          goImage.inside{
-            dir ("/home/jenkins/"){
-              sh "go install"
+        goImage.inside{
+          dir ("/home/jenkins/"){
+            sh "go install"
             }
           }
         }
