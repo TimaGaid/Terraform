@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-def goImage = "golang:latest"
+def goImage = "golang:1.20rc3-bullseye"
 
 pipeline {
   agent any
