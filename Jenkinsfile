@@ -11,6 +11,7 @@ pipeline {
   
 
     stage("build go"){
+      steps {
         timeout(time: 5, utils: 'MINUTES'){
           goImage.inside{
             dir ("/home/jenkins/"){
@@ -21,6 +22,7 @@ pipeline {
       }
     }  
   }
+}
 // def goImage = "golang:latest"
 
 // properties([
