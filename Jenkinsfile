@@ -8,9 +8,21 @@ pipeline {
         echo 'Placeholder.'
       }
     }
-  }
-}
+  
 
+    stage("build go"){
+      try{
+          timeout(time: 5, utils: 'MINUTES'){
+            goImage.inside{
+              dir ("/home/jenkins/"){
+                sh "go install"
+              }
+            }
+          }
+        }
+      }
+    }  
+  }
 // def goImage = "golang:latest"
 
 // properties([
