@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+def goImage = "golang:latest"
 
 pipeline {
   agent any
@@ -12,17 +13,15 @@ pipeline {
 
     stage("build go"){
       steps {
-        timeout(time: 5, utils: 'MINUTES'){
           goImage.inside{
             dir ("/home/jenkins/"){
               sh "go install"
             }
           }
         }
-      }
-    }  
+      }  
+    }
   }
-}
 // def goImage = "golang:latest"
 
 // properties([
