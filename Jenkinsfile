@@ -16,12 +16,12 @@ pipeline {
         goImage.inside{
           dir ("/home/jenkins/"){
             sh "go install"
-            }
           }
         }
-      }  
-    }
+      }
+    }  
   }
+}
 // def goImage = "golang:latest"
 
 // properties([
