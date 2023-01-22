@@ -1,8 +1,13 @@
 #!/usr/bin/env groovy
 
 pipeline {
-  agent any {
-    println("<=============== Start of pipeline ===============>")
+  agent
+  stages {
+    stage ('Initialize') {
+      steps {
+        echo 'Placeholder.'
+      }
+    }
   }
 }
 
