@@ -1,17 +1,9 @@
 #!/usr/bin/env groovy
-def goImage = "golang:1.20rc3-bullseye"
 
 pipeline {
   agent any
-  stages {
-    stage ('Initialize') {
-      steps {
-        echo 'Placeholder.'
-      }
-    }
-  
-
     stage("build go"){
+      def goImage = docker.build ('golang:1.20rc3-bullseye')
       steps {
         goImage.inside{
           dir ("/home/jenkins/"){
@@ -21,7 +13,7 @@ pipeline {
       }
     }  
   }
-}
+
 // def goImage = "golang:latest"
 
 // properties([
