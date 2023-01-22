@@ -4,11 +4,13 @@ pipeline {
   agent any
     stages{
       stage("build go"){
-        def goImage = docker.build ('golang:1.20rc3-bullseye')
-        steps {
-          goImage.inside{
-            dir ("/home/jenkins/"){
-              sh "go install"
+        script {
+          def goImage = docker.build ('golang:1.20rc3-bullseye')
+          steps {
+            goImage.inside{
+              dir ("/home/jenkins/"){
+                sh "go install"
+              }
             }
           }
         }
